@@ -34,5 +34,3 @@ var firstNonRepeatedCharacter = function (str) {
   }
   return null;
 }
-
-console.log(firstNonRepeatedCharacter('aa'));

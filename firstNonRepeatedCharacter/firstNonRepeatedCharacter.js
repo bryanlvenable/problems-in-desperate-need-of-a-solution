@@ -13,13 +13,13 @@ var firstNonRepeatedCharacter = function (str) {
 
   /***** Let's rock this *****/
   var arr = str.split('');
-  var search = function (term, arr) {
+  var searchThis = function (term, arr) {
     for (var i=0; i<term; i++) {
       if (arr[i] === arr[term]) {
         return true;
       }
     }
-    for (var i=term; i<term.length; i++) {
+    for (var i=term+1; i<arr.length; i++) {
       if(arr[i] === arr[term]){
         return true;
       }
@@ -28,11 +28,11 @@ var firstNonRepeatedCharacter = function (str) {
   };
   
   for (var i=0; i<arr.length; i++) {
-    if (search(i,arr)) {
+    if (!searchThis(i,arr)) {
       return arr[i];
     }
   }
   return null;
 }
 
-console.log(firstNonRepeatedCharacter('abcdca'));
+console.log(firstNonRepeatedCharacter('aa'));

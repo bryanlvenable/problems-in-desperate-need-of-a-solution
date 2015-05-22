@@ -32,7 +32,7 @@ var commonCharacters = function (firstString, secondString) {
 
     for (var i=0; i<inThis.length; i++) {
       if (ifThis === inThis[i]) {
-        console.log('Found something in search');
+        // console.log('Found something in search', ifThis, 'in', inThis);
         return true;
       }
     }
@@ -48,22 +48,24 @@ var commonCharacters = function (firstString, secondString) {
       // If found
         // Add element to results
         // Remove element from both strings
-
-  for (var i=0; i<Math.min(firstArray.length, secondArray.length); i++) {
-    // console.log('Array lengths: ', firstArray.length, secondArray.length);
+  var counter = 0;
+  // for (var i=0; i<Math.min(firstArray.length, secondArray.length); i++) {
+  while (firstArray.length > 0 && secondArray.length > 0) {
     if (search(firstArray[0], secondArray)) {
-      console.log('Found ' + firstArray[0] + ' in ' + secondArray);
       results.push(firstArray[0]);
-      firstArray = remove(firstArray[0], firstArray);
       secondArray = remove(firstArray[0], secondArray);
+      firstArray = remove(firstArray[0], firstArray);
+    } else {
+      firstArray = remove(firstArray[0], firstArray);
     }
     if (search(secondArray[0], firstArray)) {
-      console.log('Found', secondArray[0], ' in ', secondArray);
       results.push(secondArray[0]);
       firstArray = remove(secondArray[0], firstArray);
       secondArray = remove(secondArray[0], secondArray);
+    } else {
+      secondArray = remove(secondArray[0], secondArray);
     }
   }
-  console.log('Final results: ',results);
+  // console.log('Search test', search('c',['a','b','c']));
   return results.join('');
 };

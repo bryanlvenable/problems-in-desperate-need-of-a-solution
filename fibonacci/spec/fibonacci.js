@@ -16,5 +16,16 @@ describe('fibonacci()', function () {
     expect(fibonacci(2)).to.equal(1);
   });
 
-  // Add more assertions here
+  it('the nth term to equal the sum of the previous two terms', function () {
+    expect(fibonacci(3) + fibonacci(4)).to.equal(fibonacci(5));
+  });
+
+  it('8th term to be 13', function () {
+    expect(fibonacci(8)).to.equal(13);
+  });
+
+  it('can calculate the 47th term', function () {
+    expect(fibonacci(47)).to.equal(1836311903);
+  });
+
 });
